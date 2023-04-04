@@ -27,7 +27,7 @@ def play_time():
 
 	# Reconstruct song with directory structure stuff
 	song = playlist_box.get(ACTIVE)
-	song = f'C:/mp3/audio/{song}.mp3'
+	song = f'{song}.mp3'
 
 	# Find Current Song Length
 	song_mut = MP3(song)
@@ -103,7 +103,7 @@ def play():
 
 	# Reconstruct song with directory structure stuff
 	song = playlist_box.get(ACTIVE)
-	song = f'C:/mp3/audio/{song}.mp3'
+	song = f'{song}.mp3'
 	
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
@@ -147,7 +147,7 @@ def next_song():
 	# Grab the song title from the playlist
 	song = playlist_box.get(next_one)
 	# Add directory structure stuff to the song title
-	song = f'C:/mp3/audio/{song}.mp3'
+	song = f'{song}.mp3'
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
 	#Play song with pygame mixer
@@ -176,7 +176,7 @@ def previous_song():
 	# Grab the song title from the playlist
 	song = playlist_box.get(next_one)
 	# Add directory structure stuff to the song title
-	song = f'C:/mp3/audio/{song}.mp3'
+	song = f'{song}.mp3'
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
 	#Play song with pygame mixer
@@ -218,7 +218,7 @@ def volume(x):
 def slide(x):
 	# Reconstruct song with directory structure stuff
 	song = playlist_box.get(ACTIVE)
-	song = f'C:/mp3/audio/{song}.mp3'
+	song = f'{song}.mp3'
 	
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
