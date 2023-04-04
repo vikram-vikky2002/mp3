@@ -9,6 +9,7 @@ root = Tk()
 
 root.title("MP3 Player")
 root.geometry("500x400")
+root.state('zoomed')
 
 # Initialize Pygame
 pygame.mixer.init()
@@ -66,7 +67,7 @@ def play_time():
 
 # Create Function To Add One Song To Playlist
 def add_song():
-	song = filedialog.askopenfilename(initialdir='audio/', title="Choose A Song", filetypes=(("mp3 Files", "*.mp3" ), ))
+	song = filedialog.askopenfilename(initialdir='audio/', title="Choose A Song", filetypes=(("mp3 Files", "*.mp3" ), ("mp4 Files", "*.mp4")))
 	# Strip out directory structure and .mp3 from song title
 	song = song.replace("C:/mp3/audio/", "")
 	song = song.replace(".mp3", "")
@@ -75,13 +76,14 @@ def add_song():
 
 # Create Function To Add Many Songs to Playlist
 def add_many_songs():
-	songs = filedialog.askopenfilenames(initialdir='audio/', title="Choose A Song", filetypes=(("mp3 Files", "*.mp3" ), ))
+	songs = filedialog.askopenfilenames(initialdir='audio/', title="Choose A Song", filetypes=(("mp3 Files", "*.mp3" ), ("mp4 Files", "*.mp4")))
 	
 	# Loop thru song list and replace directory structure and mp3 from song name
 	for song in songs:
 		# Strip out directory structure and .mp3 from song title
 		song = song.replace("C:/mp3/audio/", "")
-		song = song.replace(".mp3", "")
+		# song = song.replace(".mp3", "")
+		# song = song.replace(".mp4", "")
 		# Add To End of Playlist
 		playlist_box.insert(END, song)
 
@@ -103,7 +105,7 @@ def play():
 
 	# Reconstruct song with directory structure stuff
 	song = playlist_box.get(ACTIVE)
-	song = f'{song}.mp3'
+	song = f'{song}'
 	
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
@@ -147,7 +149,7 @@ def next_song():
 	# Grab the song title from the playlist
 	song = playlist_box.get(next_one)
 	# Add directory structure stuff to the song title
-	song = f'{song}.mp3'
+	song = f'{song}'
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
 	#Play song with pygame mixer
@@ -176,7 +178,7 @@ def previous_song():
 	# Grab the song title from the playlist
 	song = playlist_box.get(next_one)
 	# Add directory structure stuff to the song title
-	song = f'{song}.mp3'
+	song = f'{song}'
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
 	#Play song with pygame mixer
@@ -218,7 +220,7 @@ def volume(x):
 def slide(x):
 	# Reconstruct song with directory structure stuff
 	song = playlist_box.get(ACTIVE)
-	song = f'{song}.mp3'
+	song = f'{song}'
 	
 	#Load song with pygame mixer
 	pygame.mixer.music.load(song)
